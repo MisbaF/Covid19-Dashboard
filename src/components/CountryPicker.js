@@ -22,12 +22,16 @@ const useStyles = makeStyles({
     },
 });
 
-export default function CountryPicker() {
+export default function CountryPicker({setCountry}) {
     const classes = useStyles();
-
+    function handleCountryChanged(unused1, value, unused2) {
+        
+        setCountry(value)
+    }
     return (
         <Autocomplete
             id="country-select-demo"
+            onInputChange={handleCountryChanged}
             style={{ width: 300 }}
             options={countries}
             classes={{
